@@ -1,6 +1,5 @@
 package org.generation.blogPessoal.controller;
 
-
 import java.util.List;
 
 import org.generation.blogPessoal.model.Tema;
@@ -38,8 +37,8 @@ public class TemaController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/nome{nome}")
-	public ResponseEntity<List<Tema>> getByName(String nome) {
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity<List<Tema>> getByName(@PathVariable String nome) {
 		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(nome));
 	}
 	
